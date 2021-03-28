@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="statsModel"
+            type="ankit.com.cryptosample.model.StatsPresentationModel" />
+
+        <variable
+            name="viewModel"
+            type="ankit.com.cryptosample.view.stats.CryptoStatsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/stats_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+        </ProgressBar>
+
+        <TextView
+            android:id="@+id/tv_error_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone"
+            android:text="Something went wrong please try again later"/>
+
+        <!--TODO Use a list instead and add cardview as row item of dynamic list to remove multiple layouts-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/price_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp24"
+        android:layout_marginTop="@dimen/dp24"
+        android:layout_marginEnd="@dimen/dp24"
+        app:cardElevation="5dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/price_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_price_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/market_price"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_price_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp16"
+                android:text="@{String.format(@string/amount_value, Double.toString(statsModel.market_price_usd))}"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textColor="@android:color/holo_blue_dark"
+                app:layout_constraintTop_toBottomOf="@+id/tv_price_title"
+                tools:text="$57,500.00" />
+
+            <TextView
+                android:id="@+id/tv_price_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp16"
+                android:layout_marginStart="@dimen/dp24"
+                android:layout_marginEnd="@dimen/dp24"
+                android:paddingBottom="@dimen/dp16"
+                android:text="The average USD market price across major bitcoin exchanges"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_price_value"
+                tools:text="The average USD market price across major bitcoin exchanges" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/block_size_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp24"
+        android:layout_marginTop="@dimen/dp24"
+        android:layout_marginEnd="@dimen/dp24"
+        app:cardElevation="5dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/price_cardview">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/block_size_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_block_size_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/block_size"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_block_size_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp16"
+                android:text="@{String.format(@string/block_size_value, Double.toString(statsModel.blocks_size))}"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textColor="@android:color/holo_blue_dark"
+                app:layout_constraintTop_toBottomOf="@+id/tv_block_size_title"
+                tools:text="1.41MB" />
+
+            <TextView
+                android:id="@+id/tv_block_size_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp16"
+                android:layout_marginStart="@dimen/dp24"
+                android:layout_marginEnd="@dimen/dp24"
+                android:paddingBottom="@dimen/dp16"
+                android:text="The average block size over the past 24 hours in megabytes"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_block_size_value"
+                tools:text="The average block size over the past 24 hours in megabytes" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/no_of_transactions_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp24"
+            android:layout_marginTop="@dimen/dp24"
+            android:layout_marginEnd="@dimen/dp24"
+            app:cardElevation="5dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/block_size_cardview">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/no_of_transactions_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_no_of_transactions_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/number_of_transactions"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_no_of_transactions_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp16"
+                    android:text="@{Integer.toString(statsModel.n_tx)}"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:textColor="@android:color/holo_blue_dark"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_no_of_transactions_title"
+                    tools:text="233805" />
+
+                <TextView
+                    android:id="@+id/tv_no_of_transactions_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp16"
+                    android:layout_marginStart="@dimen/dp24"
+                    android:layout_marginEnd="@dimen/dp24"
+                    android:paddingBottom="@dimen/dp16"
+                    android:text="The average block size over the past 24 hours in megabytes"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_no_of_transactions_value"
+                    tools:text="The aggregated number of confimred transactions in the past 24 hours " />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

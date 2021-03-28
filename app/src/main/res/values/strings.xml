@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CryptoSample</string>
+    <string name="crypto_stats">Bitcoin Stats</string>
+    <string name="market_price">Market Price</string>
+    <string name="amount_value">$%s</string>
+    <string name="block_size_value">%sMB</string>
+    <string name="block_size">Block Size (MB)</string>
+    <string name="number_of_transactions">Number of Transactions</string>
+</resources>

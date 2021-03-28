@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/crypto_stats_fragment"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/crypto_stats_fragment"
+        android:name="ankit.com.cryptosample.view.stats.CryptoStatsFragment"
+        android:label="@string/crypto_stats"
+        tools:layout="@layout/crypto_stats_layout" >
+        <action
+            android:id="@+id/action_crypto_stats_fragment_to_crypto_chart_fragment"
+            app:destination="@id/crypto_chart_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/crypto_chart_fragment"
+        android:name="ankit.com.cryptosample.view.chart.CryptoChartFragment"
+        android:label="Graph" />
+
+</navigation>
