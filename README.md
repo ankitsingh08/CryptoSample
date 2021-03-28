@@ -46,4 +46,7 @@ Unit test cases are included for the following:
  - **Repository** : Gets the requested data using api service ans exposes data to domain layer. 
  - **Mapper** : Used to map data models to domains models to keep domain independent of data layer.
  - **DataModel** : Structure for data retrieved from remote data source. 
+
+# Screenshots
+ <img src="https://user-images.githubusercontent.com/16702310/112769857-65a2f200-8ff1-11eb-8e4c-941cd5f86b0a.png" width="30%">  <img src="https://user-images.githubusercontent.com/16702310/112769862-6c316980-8ff1-11eb-9ecc-208c0901593e.png" width="30%">
  
