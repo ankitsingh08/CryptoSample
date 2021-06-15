@@ -48,7 +48,7 @@ Unit test cases are included for the following:
  - **DataModel** : Structure for data retrieved from remote data source. 
 
 # Screenshots
- <img src="https://user-images.githubusercontent.com/16702310/121984122-6df10a80-cd60-11eb-8d44-17d5dbe16b6d.png" width="30%">  <img src="https://user-images.githubusercontent.com/16702310/121984126-71849180-cd60-11eb-9bf6-d3a582860eb3.png" width="30%"> <img src="https://user-images.githubusercontent.com/16702310/121984134-747f8200-cd60-11eb-8513-583a4bed493e.png" width="30%"> <img src="https://user-images.githubusercontent.com/16702310/121984141-76e1dc00-cd60-11eb-843f-d2001691123c.png" width="30%"> <img src="https://user-images.githubusercontent.com/16702310/121984145-79443600-cd60-11eb-8404-0b3d6890e1c3.png" width="30%">
+<img src="https://user-images.githubusercontent.com/16702310/112769857-65a2f200-8ff1-11eb-8e4c-941cd5f86b0a.png" width="30%">  <img src="https://user-images.githubusercontent.com/16702310/112769862-6c316980-8ff1-11eb-9ecc-208c0901593e.png" width="30%">
  
  
  
